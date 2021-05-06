@@ -26,7 +26,9 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onAddToShoppingList() {
-    this.carListService.addIngredientsToShoppingList(this.carList.carVarianceInfo);
+    this.carListService.addIngredientsToShoppingList(
+      this.carList.carVarianceInfo
+    );
   }
 
   onEditRecipe() {
@@ -37,5 +39,9 @@ export class RecipeDetailComponent implements OnInit {
   onDeleteRecipe() {
     this.carListService.deleteRecipe(this.id);
     this.router.navigate(['/dashboard']);
+  }
+
+  onBack() {
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }

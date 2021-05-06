@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WindowobjComponent } from './windowobj/windowobj.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { CarlistTableComponent } from './carlist-table/carlist-table.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatTableModule } from '@angular/material/table';
     // AuthComponent,
     // LoadingSpinnerComponent,
     WindowobjComponent,
+    CarlistTableComponent,
   ],
   imports: [
     BrowserModule,

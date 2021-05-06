@@ -6,6 +6,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { CarlistResolverService } from './recipes/carlist-resolver.service';
+import { CarlistTableComponent } from './carlist-table/carlist-table.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
     path: 'dashboard',
     component: RecipesComponent,
     children: [
-      { path: '', component: RecipeStartComponent },
+      { path: '', component: CarlistTableComponent },
       { path: 'new', component: RecipeEditComponent },
       {
         path: ':id',
