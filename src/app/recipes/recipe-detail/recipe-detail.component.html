@@ -1,23 +1,23 @@
 <div class="row">
   <div class="col-xs-12">
-    <!-- <img
-      [src]="recipe.imagePath"
-      alt="{{ recipe.name }}"
-      class="img-responsive"
-      style="max-height: 300px"
-    /> -->
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ carList.carname }}</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
     <button type="button" class="btn btn-primary" (click)="onBack()">
       Back
     </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{carList.brand}} {{ carList.carname }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      [src]="carList.image"
+      alt="No image available"
+      class="img-responsive"
+      style="max-height: 300px"
+    />
   </div>
 </div>
 <div class="row">
@@ -30,7 +30,7 @@
         class="list-group-item"
         *ngFor="let carVarianceInfo of carList.carVarianceInfo"
       >
-        {{ carVarianceInfo.name }} - {{ carVarianceInfo.price }}
+        {{ carVarianceInfo.name }}: RM{{ carVarianceInfo.price }}
       </li>
     </ul>
   </div>
