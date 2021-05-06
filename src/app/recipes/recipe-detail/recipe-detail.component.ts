@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CarList } from '../carlist.model';
-import { RecipeService } from '../recipe.service';
+import { CarListService } from '../carlist.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,11 +9,11 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-detail.component.css'],
 })
 export class RecipeDetailComponent implements OnInit {
-  recipe: CarList;
+  carList: CarList;
   id: number;
 
   constructor(
-    private recipeService: RecipeService,
+    private carListService: CarListService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -21,12 +21,12 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
-      this.recipe = this.recipeService.getRecipe(this.id);
+      this.carList = this.carListService.getCarList(this.id);
     });
   }
 
   onAddToShoppingList() {
-    this.recipeService.addIngredientsToShoppingList(this.recipe.carVarianceInfo);
+    this.carListService.addIngredientsToShoppingList(this.carList.carVarianceInfo);
   }
 
   onEditRecipe() {
@@ -35,7 +35,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.id);
+    this.carListService.deleteRecipe(this.id);
     this.router.navigate(['/dashboard']);
   }
 }

@@ -16,6 +16,8 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WindowobjComponent } from './windowobj/windowobj.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { WindowobjComponent } from './windowobj/windowobj.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NoopAnimationsModule,
+    MatTableModule
   ],
   providers: [
     //   {

@@ -3,11 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 
 import { CarList, List } from '../recipes/carlist.model';
-import { RecipeService } from '../recipes/recipe.service';
+import { CarListService } from '../recipes/carlist.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-  constructor(private http: HttpClient, private recipeService: RecipeService) {}
+  constructor(private http: HttpClient, private recipeService: CarListService) {}
 
   // storeRecipes() {
   //   const recipes = this.recipeService.getRecipes();
@@ -21,7 +21,7 @@ export class DataStorageService {
   //     });
   // }
 
-  fetchRecipes() {
+  fetchCarLists() {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     // headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
@@ -46,7 +46,7 @@ export class DataStorageService {
           });
         }),
         tap((List) => {
-          this.recipeService.setRecipes(List);
+          this.recipeService.setCarList(List);
         })
       );
   }

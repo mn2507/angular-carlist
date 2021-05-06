@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{ recipe.carname }}</h1>
+    <h1>{{ carList.carname }}</h1>
   </div>
 </div>
 <div class="row">
@@ -38,12 +38,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">{{ recipe.description }}</div>
+  <div class="col-xs-12">{{ carList.description }}</div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let carVarianceInfo of recipe.carVarianceInfo">
+      <li class="list-group-item" *ngFor="let carVarianceInfo of carList.carVarianceInfo">
         {{ carVarianceInfo.name }} - {{ carVarianceInfo.price }}
       </li>
     </ul>

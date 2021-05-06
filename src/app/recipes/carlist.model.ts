@@ -4,6 +4,7 @@ export class CarList {
   public carname: string;
   public brand: string;
   public description: string;
+  public image: string;
   public carVarianceInfo: CarVarianceInfo[];
 
   constructor(
@@ -11,12 +12,14 @@ export class CarList {
     carname: string,
     brand: string,
     desc: string,
+    image: string,
     carVarianceInfo: CarVarianceInfo[]
   ) {
     this.id = id;
     this.carname = carname;
     this.brand = brand;
     this.description = desc;
+    this.image = image;
     this.carVarianceInfo = carVarianceInfo;
   }
 }

@@ -7,22 +7,22 @@ import {
 
 import { CarList } from './carlist.model';
 import { DataStorageService } from '../shared/data-storage.service';
-import { RecipeService } from './recipe.service';
+import { CarListService } from './carlist.service';
 
 @Injectable({ providedIn: 'root' })
-export class RecipesResolverService implements Resolve<CarList[]> {
+export class CarlistResolverService implements Resolve<CarList[]> {
   constructor(
     private dataStorageService: DataStorageService,
-    private recipesService: RecipeService
+    private carlistService: CarListService
   ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const recipes = this.recipesService.getRecipes();
+    const carlist = this.carlistService.getCarLists();
 
-    if (recipes.length === 0) {
-      return this.dataStorageService.fetchRecipes();
+    if (carlist.length === 0) {
+      return this.dataStorageService.fetchCarLists();
     } else {
-      return recipes;
+      return carlist;
     }
   }
 }

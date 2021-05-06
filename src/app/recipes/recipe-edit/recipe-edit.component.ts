@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { RecipeService } from '../recipe.service';
+import { CarListService } from '../carlist.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -15,7 +15,7 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipeService,
+    private recipeService: CarListService,
     private router: Router
   ) {}
 
@@ -74,7 +74,7 @@ export class RecipeEditComponent implements OnInit {
     let recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
-      const recipe = this.recipeService.getRecipe(this.id);
+      const recipe = this.recipeService.getCarList(this.id);
       recipeName = recipe.carname;
       // recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;

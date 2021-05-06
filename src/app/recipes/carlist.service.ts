@@ -5,7 +5,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class RecipeService {
+export class CarListService {
   recipesChanged = new Subject<CarList[]>();
 
   // private recipes: CarList[] = [
@@ -23,21 +23,21 @@ export class RecipeService {
   //   ),
   // ];
 
-  private recipes: CarList[] = [];
+  private carList: CarList[] = [];
 
   constructor(private slService: ShoppingListService) {}
 
-  setRecipes(recipes: CarList[]) {
-    this.recipes = recipes;
-    this.recipesChanged.next(this.recipes.slice());
+  setCarList(carlists: CarList[]) {
+    this.carList = carlists;
+    this.recipesChanged.next(this.carList.slice());
   }
 
-  getRecipes() {
-    return this.recipes.slice();
+  getCarLists() {
+    return this.carList.slice();
   }
 
-  getRecipe(index: number) {
-    return this.recipes[index];
+  getCarList(index: number) {
+    return this.carList[index];
   }
 
   addIngredientsToShoppingList(ingredients: CarVarianceInfo[]) {
@@ -45,17 +45,17 @@ export class RecipeService {
   }
 
   addRecipe(recipe: CarList) {
-    this.recipes.push(recipe);
-    this.recipesChanged.next(this.recipes.slice());
+    this.carList.push(recipe);
+    this.recipesChanged.next(this.carList.slice());
   }
 
   updateRecipe(index: number, newRecipe: CarList) {
-    this.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.recipes.slice());
+    this.carList[index] = newRecipe;
+    this.recipesChanged.next(this.carList.slice());
   }
 
   deleteRecipe(index: number) {
-    this.recipes.splice(index, 1);
-    this.recipesChanged.next(this.recipes.slice());
+    this.carList.splice(index, 1);
+    this.recipesChanged.next(this.carList.slice());
   }
 }
