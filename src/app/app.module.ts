@@ -19,6 +19,10 @@ import { WindowobjComponent } from './windowobj/windowobj.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { CarlistTableComponent } from './carlist-table/carlist-table.component';
+import { MenuSidetabComponent } from './menu-sidetab/menu-sidetab.component';
+import { AuthComponent } from './auth/auth.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { CarlistTableComponent } from './carlist-table/carlist-table.component';
     // LoadingSpinnerComponent,
     WindowobjComponent,
     CarlistTableComponent,
+    MenuSidetabComponent,
+    AuthComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,7 @@ import { CarlistTableComponent } from './carlist-table/carlist-table.component';
     ReactiveFormsModule,
     HttpClientModule,
     NoopAnimationsModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [
     //   {

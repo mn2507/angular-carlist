@@ -1,4 +1,4 @@
-import { CarVarianceInfo } from '../shared/ingredient.model';
+import { CarVarianceInfo } from '../shared/carVariance.model';
 export class CarList {
   public id: string;
   public carname: string;

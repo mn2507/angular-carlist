@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { CarVarianceInfo } from 'src/app/shared/ingredient.model';
+import { CarVarianceInfo } from 'src/app/shared/carVariance.model';
 import { ShoppingListService } from '../shopping-list.service';
 import { Subscription } from 'rxjs';
 

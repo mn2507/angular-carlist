@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CarVarianceInfo } from '../shared/ingredient.model';
+import { CarVarianceInfo } from '../shared/carVariance.model';
 import { ShoppingListService } from './shopping-list.service';
 
 @Component({

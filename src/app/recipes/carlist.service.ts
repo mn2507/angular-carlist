@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CarVarianceInfo } from '../shared/ingredient.model';
+import { CarVarianceInfo } from '../shared/carVariance.model';
 import { CarList } from './carlist.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';

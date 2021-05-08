@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { DataStorageService } from '../shared/data-storage.service';
+import { User } from '../auth/user.model';
 
 @Component({
   selector: 'app-header',
@@ -8,38 +7,24 @@ import { DataStorageService } from '../shared/data-storage.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  isAuthenticated = false;
-  private userSub: Subscription;
+  user: User;
   public now: Date = new Date();
 
-  constructor(
-    private dataStorageService: DataStorageService
-    // private authService: AuthService
-  ) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    // this.userSub = this.authService.user.subscribe((user) => {
-    //   this.isAuthenticated = !!user; // !user ? false : true
-    //   console.log(!user);
-    //   console.log(!!user);
-    // });
+  ngOnInit(): void {}
+
+  clearLocalDb() {
+    localStorage.clear();
   }
 
-  onSaveData() {
-    // this.dataStorageService.storeRecipes();
+  getToken(): boolean {
+    return localStorage.getItem('token') ? true : false;
   }
 
-  onFetchData() {
-    this.dataStorageService.fetchCarLists().subscribe();
+  getDispUsername(): string {
+    return localStorage.getItem('displayusername')
   }
-
-  // onLogout() {
-  //   this.authService.logout();
-  // }
-
-  // ngOnDestroy() {
-  //   this.userSub.unsubscribe();
-  // }
 
   setDateAndTime() {
     setInterval(() => {

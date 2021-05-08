@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { CarVarianceInfo } from '../shared/ingredient.model';
+import { CarVarianceInfo } from '../shared/carVariance.model';
 
 @Injectable({ providedIn: 'root' })
 export class ShoppingListService {
