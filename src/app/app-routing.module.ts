@@ -12,12 +12,15 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { AuthService } from './auth/auth.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   {
     path: 'products',
+    canActivate: [AuthService],
     component: RecipesComponent,
     children: [
       { path: '', component: CarlistTableComponent },
@@ -37,8 +40,17 @@ const appRoutes: Routes = [
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'signin', component: AuthComponent },
   { path: 'forgotpassword', component: ForgotPasswordComponent },
-  { path: 'changepassword', component: ChangePasswordComponent },
-  { path: 'myprofile', component: MyprofileComponent },
+  {
+    path: 'changepassword',
+    canActivate: [AuthService],
+    component: ChangePasswordComponent,
+  },
+  {
+    path: 'myprofile',
+    canActivate: [AuthService],
+    component: MyprofileComponent,
+  },
+  { path: 'unauthorized', component: UnauthorizedComponent },
 ];
 
 @NgModule({

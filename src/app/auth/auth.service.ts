@@ -4,10 +4,13 @@ import { map } from 'rxjs/operators';
 import { User } from './user.model';
 import { ForgotPassword } from './forgot-password/forgotPassword.model';
 import { ChangePassword } from './change-password/changePassword.model';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  isAuth: boolean;
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   signin(username: string, password: string) {
     const userAgent = window.navigator.userAgent;
@@ -54,7 +57,7 @@ export class AuthService {
       )
       .pipe(
         map((forgotRes) => {
-          this.saveForgotMessage(forgotRes.message)
+          this.saveForgotMessage(forgotRes.message);
           return {
             ...forgotRes,
             message: forgotRes.message,
@@ -85,7 +88,7 @@ export class AuthService {
       )
       .pipe(
         map((changeRes) => {
-          this.saveChangeMessage(changeRes.message)
+          this.saveChangeMessage(changeRes.message);
           return {
             ...changeRes,
             message: changeRes.message,
@@ -110,7 +113,15 @@ export class AuthService {
     localStorage.setItem('token', JSON.stringify(token));
   }
 
-  public getToken(): string {
-    return localStorage.getItem('token');
+  getToken(): boolean {
+    return localStorage.getItem('token') ? true : false;
+  }
+
+  canActivate(): boolean {
+    this.isAuth = this.getToken();
+    if (!this.isAuth) {
+      this.router.navigate(['/unauthorized']);
+    }
+    return this.isAuth;
   }
 }
