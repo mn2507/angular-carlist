@@ -11,9 +11,11 @@ import { AuthComponent } from './auth/auth.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
   {
     path: 'products',
     component: RecipesComponent,
