@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 
-import { CarList, List } from '../recipes/carlist.model';
-import { CarListService } from '../recipes/carlist.service';
+import { List } from '../carlist/carlist.model';
+import { CarListService } from '../carlist/carlist.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-  constructor(private http: HttpClient, private recipeService: CarListService) {}
+  constructor(private http: HttpClient, private carlistService: CarListService) {}
 
   fetchCarLists() {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    // headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
 
     return this.http
       .post<List>(
@@ -34,7 +33,7 @@ export class DataStorageService {
           });
         }),
         tap((List) => {
-          this.recipeService.setCarList(List);
+          this.carlistService.setCarList(List);
         })
       );
   }

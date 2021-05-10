@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CarListService {
-  recipesChanged = new Subject<CarList[]>();
+  carlistsChanged = new Subject<CarList[]>();
 
   private carList: CarList[] = [];
 
@@ -12,7 +12,7 @@ export class CarListService {
 
   setCarList(carlists: CarList[]) {
     this.carList = carlists;
-    this.recipesChanged.next(this.carList.slice());
+    this.carlistsChanged.next(this.carList.slice());
   }
 
   getCarLists() {

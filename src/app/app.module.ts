@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/carlist.component';
-import { RecipeDetailComponent } from './recipes/carlist-detail/carlist-detail.component';
+import { CarlistComponent } from './carlist/carlist.component';
+import { CarlistDetailComponent } from './carlist/carlist-detail/carlist-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
@@ -29,9 +28,8 @@ import { InvalidProductComponent } from './invalid-product/invalid-product.compo
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeDetailComponent,
-    DropdownDirective,
+    CarlistComponent,
+    CarlistDetailComponent,
     CarlistTableComponent,
     MenuSidetabComponent,
     AuthComponent,

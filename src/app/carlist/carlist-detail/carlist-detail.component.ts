@@ -8,7 +8,7 @@ import { CarListService } from '../carlist.service';
   templateUrl: './carlist-detail.component.html',
   styleUrls: ['./carlist-detail.component.css'],
 })
-export class RecipeDetailComponent implements OnInit {
+export class CarlistDetailComponent implements OnInit {
   carList: CarList;
   id: number;
 

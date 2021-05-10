@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
-import { ForgotPassword } from './forgotPassword.model';
 
 @Component({
   selector: 'app-forgot-password',

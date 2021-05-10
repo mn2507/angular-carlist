@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RecipesComponent } from './recipes/carlist.component';
-import { RecipeDetailComponent } from './recipes/carlist-detail/carlist-detail.component';
-import { CarlistResolverService } from './recipes/carlist-resolver.service';
+import { CarlistComponent } from './carlist/carlist.component';
+import { CarlistDetailComponent } from './carlist/carlist-detail/carlist-detail.component';
+import { CarlistResolverService } from './carlist/carlist-resolver.service';
 import { CarlistTableComponent } from './carlist-table/carlist-table.component';
 import { AuthComponent } from './auth/auth.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
     path: 'products',
     data: { breadcrumb: 'Products' },
     canActivate: [AuthService],
-    component: RecipesComponent,
+    component: CarlistComponent,
     children: [
       {
         path: '',
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
       {
         path: ':id',
         data: { breadcrumb: { alias: 'ProductsId' } },
-        component: RecipeDetailComponent,
+        component: CarlistDetailComponent,
         resolve: [CarlistResolverService],
       },
     ],
