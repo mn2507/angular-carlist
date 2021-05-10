@@ -1,5 +1,9 @@
 <app-header></app-header>
 <div class="container">
+  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+  <ng-template #iconTemplate>
+    <mat-icon>chevron_right</mat-icon>
+  </ng-template>
   <div class="row">
     <div class="col-md-2">
       <app-menu-sidetab></app-menu-sidetab>

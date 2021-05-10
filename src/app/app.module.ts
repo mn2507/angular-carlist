@@ -28,6 +28,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogPopupComponent } from './dashboard/dialog-popup/dialog-popup.component';
+import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -63,14 +65,10 @@ import { DialogPopupComponent } from './dashboard/dialog-popup/dialog-popup.comp
     NoopAnimationsModule,
     MatTableModule,
     MatDialogModule,
+    BreadcrumbModule,
+    MatIconModule,
   ],
-  providers: [
-    //   {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptorService,
-    //   multi: true
-    // }
-  ],
+  providers: [BreadcrumbService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

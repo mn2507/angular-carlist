@@ -17,16 +17,26 @@ import { AuthService } from './auth/auth.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard',
+    data: { breadcrumb: 'Dashboard' },
+    component: DashboardComponent,
+  },
   {
     path: 'products',
+    data: { breadcrumb: 'Products' },
     canActivate: [AuthService],
     component: RecipesComponent,
     children: [
-      { path: '', component: CarlistTableComponent },
+      {
+        path: '',
+        data: { breadcrumb: null },
+        component: CarlistTableComponent,
+      },
       { path: 'new', component: RecipeEditComponent },
       {
         path: ':id',
+        data: { breadcrumb: { alias: 'ProductsId' } },
         component: RecipeDetailComponent,
         resolve: [CarlistResolverService],
       },
@@ -38,19 +48,29 @@ const appRoutes: Routes = [
     ],
   },
   { path: 'shopping-list', component: ShoppingListComponent },
-  { path: 'signin', component: AuthComponent },
-  { path: 'forgotpassword', component: ForgotPasswordComponent },
+  { path: 'signin', data: { breadcrumb: 'Sign-In' }, component: AuthComponent },
+  {
+    path: 'forgotpassword',
+    data: { breadcrumb: 'Forget Password' },
+    component: ForgotPasswordComponent,
+  },
   {
     path: 'changepassword',
+    data: { breadcrumb: 'Change Password' },
     canActivate: [AuthService],
     component: ChangePasswordComponent,
   },
   {
     path: 'myprofile',
+    data: { breadcrumb: 'My Profile' },
     canActivate: [AuthService],
     component: MyprofileComponent,
   },
-  { path: 'unauthorized', component: UnauthorizedComponent },
+  {
+    path: 'unauthorized',
+    data: { breadcrumb: 'Unauthorized' },
+    component: UnauthorizedComponent,
+  },
 ];
 
 @NgModule({

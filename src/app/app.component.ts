@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    // private authService: AuthService
-    ) {}
+  constructor(private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit() {
-    // this.authService.autoLogin();
+    this.breadcrumbService.set('@ProductsId', 'Product Detail');
   }
 }
