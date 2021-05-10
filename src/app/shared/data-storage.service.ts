@@ -9,18 +9,6 @@ import { CarListService } from '../recipes/carlist.service';
 export class DataStorageService {
   constructor(private http: HttpClient, private recipeService: CarListService) {}
 
-  // storeRecipes() {
-  //   const recipes = this.recipeService.getRecipes();
-  //   this.http
-  //     .put(
-  //       'https://angular-recipe-tutorial-19af6-default-rtdb.firebaseio.com/recipes.json',
-  //       recipes
-  //     )
-  //     .subscribe((response) => {
-  //       console.log(response);
-  //     });
-  // }
-
   fetchCarLists() {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');

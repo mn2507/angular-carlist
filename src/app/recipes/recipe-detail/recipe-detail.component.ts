@@ -22,6 +22,7 @@ export class RecipeDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.carList = this.carListService.getCarList(this.id);
+      this.carList == null ? this.router.navigate(['/invalid']) : null
     });
   }
 

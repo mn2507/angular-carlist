@@ -14,6 +14,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { AuthService } from './auth/auth.service';
+import { InvalidProductComponent } from './invalid-product/invalid-product.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -70,6 +71,12 @@ const appRoutes: Routes = [
     path: 'unauthorized',
     data: { breadcrumb: 'Unauthorized' },
     component: UnauthorizedComponent,
+  },
+  {
+    path: 'invalid',
+    data: { breadcrumb: 'Products' },
+    canActivate: [AuthService],
+    component: InvalidProductComponent,
   },
 ];
 

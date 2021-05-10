@@ -30,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogPopupComponent } from './dashboard/dialog-popup/dialog-popup.component';
 import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import { MatIconModule } from '@angular/material/icon';
+import { InvalidProductComponent } from './invalid-product/invalid-product.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     UnauthorizedComponent,
     DialogPopupComponent,
+    InvalidProductComponent,
   ],
   imports: [
     BrowserModule,
