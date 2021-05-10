@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RecipesComponent } from './recipes/recipes.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipesComponent } from './recipes/carlist.component';
+import { RecipeDetailComponent } from './recipes/carlist-detail/carlist-detail.component';
 import { CarlistResolverService } from './recipes/carlist-resolver.service';
 import { CarlistTableComponent } from './carlist-table/carlist-table.component';
 import { AuthComponent } from './auth/auth.component';
@@ -34,21 +31,14 @@ const appRoutes: Routes = [
         data: { breadcrumb: null },
         component: CarlistTableComponent,
       },
-      { path: 'new', component: RecipeEditComponent },
       {
         path: ':id',
         data: { breadcrumb: { alias: 'ProductsId' } },
         component: RecipeDetailComponent,
         resolve: [CarlistResolverService],
       },
-      {
-        path: ':id/edit',
-        component: RecipeEditComponent,
-        resolve: [CarlistResolverService],
-      },
     ],
   },
-  { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'signin', data: { breadcrumb: 'Sign-In' }, component: AuthComponent },
   {
     path: 'forgotpassword',

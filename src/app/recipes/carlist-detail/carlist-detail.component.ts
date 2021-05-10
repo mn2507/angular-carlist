@@ -4,9 +4,9 @@ import { CarList } from '../carlist.model';
 import { CarListService } from '../carlist.service';
 
 @Component({
-  selector: 'app-recipe-detail',
-  templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css'],
+  selector: 'app-carlist-detail',
+  templateUrl: './carlist-detail.component.html',
+  styleUrls: ['./carlist-detail.component.css'],
 })
 export class RecipeDetailComponent implements OnInit {
   carList: CarList;
@@ -24,21 +24,6 @@ export class RecipeDetailComponent implements OnInit {
       this.carList = this.carListService.getCarList(this.id);
       this.carList == null ? this.router.navigate(['/invalid']) : null
     });
-  }
-
-  onAddToShoppingList() {
-    this.carListService.addIngredientsToShoppingList(
-      this.carList.carVarianceInfo
-    );
-  }
-
-  onEditRecipe() {
-    this.router.navigate(['edit'], { relativeTo: this.route });
-  }
-
-  onDeleteRecipe() {
-    this.carListService.deleteRecipe(this.id);
-    this.router.navigate(['/dashboard']);
   }
 
   onBack() {
