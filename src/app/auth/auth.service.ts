@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { User } from './user.model';
 import { ForgotPassword } from './forgot-password/forgotPassword.model';
 import { ChangePassword } from './change-password/changePassword.model';
 import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   isAuth: boolean;
-
+  message;
   constructor(private http: HttpClient, private router: Router) {}
 
   signin(username: string, password: string) {
@@ -87,6 +88,14 @@ export class AuthService {
         }
       )
       .pipe(
+        catchError((error) => {
+          if (error.error instanceof ErrorEvent) {
+            `Error: ${error.error.message}`;
+          } else {
+            `Error: ${error.message}`;
+          }
+          return throwError(error.error.message);
+        }),
         map((changeRes) => {
           this.saveChangeMessage(changeRes.message);
           return {

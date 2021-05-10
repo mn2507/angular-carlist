@@ -26,6 +26,8 @@ import { ChangePasswordComponent } from './auth/change-password/change-password.
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogPopupComponent } from './dashboard/dialog-popup/dialog-popup.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,6 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    // AuthComponent,
     // LoadingSpinnerComponent,
     WindowobjComponent,
     CarlistTableComponent,
@@ -51,6 +52,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     MyprofileComponent,
     DashboardComponent,
     UnauthorizedComponent,
+    DialogPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     HttpClientModule,
     NoopAnimationsModule,
     MatTableModule,
+    MatDialogModule,
   ],
   providers: [
     //   {

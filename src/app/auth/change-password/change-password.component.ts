@@ -11,8 +11,11 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
   currentPassword: string;
   newPassword: string;
   confirmPassword = true;
+  public message: string;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.message = authService.message;
+  }
 
   ngOnInit(): void {}
 
