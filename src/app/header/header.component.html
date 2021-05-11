@@ -4,21 +4,21 @@
       <a href="#" class="navbar-brand">Welcome, {{ getDispUsername() }}!</a>
     </div>
 
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>Time: {{ now | date: "HH:mm" }}</li>
-        <li *ngIf="!getToken()">
-          <a routerLink="/signin">Login</a>
-        </li>
-        <li routerLinkActive="active" *ngIf="getToken()">
-          <a
-            style="cursor: pointer"
-            (click)="clearLocalDb()"
-            routerLink="/signin"
-            >Logout</a
-          >
-        </li>
+    <ul class="pull-right" style="text-align: end">
+      <ul>
+        Time:
+        {{
+          now | date: "HH:mm"
+        }}
       </ul>
-    </div>
+      <ul *ngIf="!getToken()">
+        <a routerLink="/signin">Login</a>
+      </ul>
+      <ul routerLinkActive="active" *ngIf="getToken()">
+        <a style="cursor: pointer" (click)="clearLocalDb()" routerLink="/signin"
+          >Logout</a
+        >
+      </ul>
+    </ul>
   </div>
 </nav>
