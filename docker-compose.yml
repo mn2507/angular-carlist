@@ -1,0 +1,7 @@
+version: '2'
+services:
+  angular-compose:
+    container_name: angular-compose
+    build: .
+    ports:
+      - '8082:80'
